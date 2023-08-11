@@ -4,6 +4,7 @@
 import unittest
 canUnlockAll = __import__('0-lockboxes').canUnlockAll
 
+
 class TestCanUnlockAll(unittest.TestCase):
 
     def test_canUnlockAll(self):
@@ -18,5 +19,3 @@ class TestCanUnlockAll(unittest.TestCase):
     def test_cannot_accept_float(self):
         with self.assertRaises(TypeError):
             canUnlockAll([[1], [2, 3.4], [3], [4], []])
-
-
