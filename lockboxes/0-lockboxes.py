@@ -9,6 +9,12 @@ def canUnlockAll(boxes):
     Returns:
         True if all boxes can be opened, else return False
     '''
+    if not isinstance(boxes, list):
+            raise TypeError("boxes must be an list")
+
+    if not isinstance(boxes[0], list):
+            raise TypeError("boxes must be a list of lists")
+
     number_of_boxes = len(boxes)
     unlocked_boxes = [False] * number_of_boxes
     unlocked_boxes[0] = True  # The first box boxes[0] is unlocked
