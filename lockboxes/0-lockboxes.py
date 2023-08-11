@@ -15,8 +15,10 @@ def canUnlockAll(boxes):
     keys = [0]  # Start with the keys from the first box
 
     for i in keys:
-        for key in boxes[i]:
-            if unlocked_boxes[key] is False:
-                unlocked_boxes[key] = True
-                keys.append(key)
+        if i < number_of_boxes:  # Check if i is not out of range
+            for key in boxes[i]:
+                if key < number_of_boxes and unlocked_boxes[key] is False:
+                    unlocked_boxes[key] = True
+                    keys.append(key)
+
     return all(unlocked_boxes)
