@@ -11,24 +11,22 @@ def minOperations(n):
         an integer
         or O if n is impossible to achieve
     '''
+    if n == 1:
+        return 0
+
     H = 1
     H_copy = 0
-    rest = n - H
     number_ops = 0
 
-    if n == 1:
-        return 1
-
     while H < n:
-        if H <= (rest / 2) and (H + H_copy) != ((rest - H_copy) / 2):
+        if n % H == 0:
             H_copy = H
             H *= 2
-            rest = n - H
-            number_ops += 2
+            number_ops += 2  # Copy All and Paste
         else:
             H += H_copy
-            rest = n - H
-            number_ops += 1
+            number_ops += 1  # Paste
+
     if H != n:
         return 0
     return number_ops
