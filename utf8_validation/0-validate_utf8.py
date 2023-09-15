@@ -12,7 +12,7 @@ def validUTF8(data):
         else return False
     '''
     for i in data:
-        if i >= 255:
+        if i > 255:
             return False
 
     return True
