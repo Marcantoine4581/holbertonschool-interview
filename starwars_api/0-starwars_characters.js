@@ -1,6 +1,5 @@
 #!/usr/bin/node
 const request = require('request');
-const process = require('process');
 
 const movieId = process.argv[2];
 
@@ -11,9 +10,9 @@ request(url, async function (error, response, body) {
   const object = JSON.parse(body);
   const charactersList = object.characters;
 
-  for (let i = 0; i < charactersList.length; i++) {
+  for (const url of charactersList) {
     await new Promise(function (resolve, reject) {
-      request(charactersList[i], function (error, response, body) {
+      request(url, function (error, response, body) {
         if (error) {
           console.error(error);
           reject(error);
