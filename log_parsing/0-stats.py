@@ -2,7 +2,7 @@
 """ 0. Log parsing """
 import sys
 
-counter = {"total_size": 0, "nb_line": 1}
+counter = {"total_size": 0, "nb_line": 0}
 status_codes = {'200': 0, '301': 0, ' 400': 0, '401': 0,
                 '403': 0, '404': 0, '405': 0, '500': 0}
 
@@ -26,9 +26,9 @@ try:
             status_codes[status_code] += 1
             counter["total_size"] += file_size
             counter["nb_line"] += 1
-        if counter["nb_line"] % 10 == 0:
+        if counter["nb_line"] != 0 and counter["nb_line"] % 10 == 0:
             print_stats()
 except KeyboardInterrupt:
-    pass
+    raise
 finally:
     print_stats()
