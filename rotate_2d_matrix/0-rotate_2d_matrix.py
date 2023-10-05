@@ -11,7 +11,7 @@ def rotate_2d_matrix(matrix):
         nothing
     '''
     for i in range(int(len(matrix) / 2)):
-        for j in range(len(matrix) - 1 - i):
+        for j in range(i, len(matrix) - 1 - i):
             opposite_i = (len(matrix) - j - 1)
             opposite_j = (len(matrix) - 1 - i)
             tmp = matrix[i][j]
